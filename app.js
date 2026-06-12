@@ -55,9 +55,10 @@ app.post("/backup", async (req, res) => {
 
 module.exports = app;
 
-if (require.main === module) {
-    const port = process.env.PORT || 5775;
-    app.listen(port, () => {
-        console.log(`API Berjalan di Port: ${port}`);
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(5775, () => {
+        console.log("API Berjalan di Port: 5775");
     });
 }
+
+module.exports = app;
